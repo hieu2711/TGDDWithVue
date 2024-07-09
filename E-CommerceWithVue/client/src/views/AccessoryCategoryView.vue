@@ -24,11 +24,16 @@
             <ContainerCate text="Phụ kiện nổi bật" :categories="categoryAccessoryList" className="bg-white rounded-lg p-2" />
          </div>
          <div class="bg-gray-200 p-3 mt-3">
-            <ListButtonBrand  :filters="filterBrandAccessory"/>
+            <ListButtonBrand  :filters="filterBrandAccessory"  @brandSelected="handleBrandSelected"/>
           </div>
           <div>
-            <span class="font-semibold">50 Phụ kiện</span>
-            <ListItemProduct :itemCount="20" itemWidth="240px" color="bg-[none]" :isShow="true" />
+            <div class="mt-3">
+            <button @click="handleSetAllProduct" class=" border-1 border-gray-300 p-1.5 rounded-md hover:border-blue-500 hover:text-blue-500 mr-3">Tất cả</button>
+            <span v-if="countProduct > 0" class="font-semibold">{{ countProduct }} Phụ kiện</span>
+            <span v-else class="font-semibold text-center">Không có sản phẩm để hiển thị</span>
+        </div>
+            <ListItemProduct :listProduct="listAccessory" itemWidth="240px" color="bg-[none]"  :isShow="true"  
+            :isShowAll="true"   @updateLimit="handleLimitUpdate"  :limitValue="limit" />
           </div>
         </div>
       </div>
@@ -45,9 +50,44 @@
   import {  filterBrandAccessory} from '../utils/filter'
   import { listImageAccessory } from '../utils/category'
   import ListItemProduct from '@/components/ListItemProduct/ListItemProduct.vue';
-import ButtonSale from '@/components/ButtonSale/ButtonSale.vue';
-import ContainerCate from '@/components/ContainerCate/ContainerCate.vue';
-import { categoryAccessoryList } from '../utils/category'
+  import ButtonSale from '@/components/ButtonSale/ButtonSale.vue';
+  import ContainerCate from '@/components/ContainerCate/ContainerCate.vue';
+  import { categoryAccessoryList } from '../utils/category'
+  import { ref, provide } from 'vue';
+  
+import { onMounted, watch } from 'vue';
+import { fetchCountProduct, fetchProductByBrandAndCategory, fetchProductByCategory } from '@/Hooks/FetchProductLimit';
+const countProduct = ref(0)
+const listAccessory = ref([])
+const limit = ref(10)
+const category = ref('accessories')
+const brand = ref('')
+const activeButton = ref(null);
+const setActiveButton = (buttonName) => {
+  activeButton.value = buttonName;
+};
+
+provide('activeButton', activeButton);
+provide('setActiveButton', setActiveButton);
+
+onMounted(() =>{
+  fetchCountProduct(countProduct,category.value)
+  fetchProductByCategory(listAccessory,category.value,limit.value)
+})
+const handleLimitUpdate = async  (newLimit) => {
+  limit.value = newLimit; 
+  await  fetchProductByCategory(listAccessory,category.value,limit.value);
+};
+const handleBrandSelected = async (selectedBrand) => {
+  brand.value = selectedBrand;
+  await fetchProductByBrandAndCategory(listAccessory,category.value,brand.value)
+  await fetchCountProduct(countProduct,category.value, brand.value)
+};
+const handleSetAllProduct = () =>{
+  brand.value = ''
+  fetchProductByCategory(listAccessory,category.value,limit.value)
+  fetchCountProduct(countProduct,category.value)
+}
   </script>
   
   <style>

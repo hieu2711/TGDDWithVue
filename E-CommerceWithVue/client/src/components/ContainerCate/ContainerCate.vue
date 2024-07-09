@@ -12,12 +12,14 @@
           :srcImage="category.srcImage"
           :name="category.name"
           :price="category.price"
+          @click="handleClick(category.redirect)"
         />
     </div>
   </div>
 </template>
 
 <script setup>
+import router from "@/router";
 import ItemCategory from "../ItemCategory/ItemCategory.vue"
 const props = defineProps({
     text: String,
@@ -27,6 +29,9 @@ const props = defineProps({
       required: true,
     },
 })
+const handleClick = (url) =>{
+  router.push(url)
+}
 </script>
 
 <style>

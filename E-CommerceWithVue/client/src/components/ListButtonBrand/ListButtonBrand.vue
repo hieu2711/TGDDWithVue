@@ -5,7 +5,8 @@
       v-for="(filter, index) in filters" 
       :key="index" 
       :srcImage="filter.srcImage" 
-      :style-css="'rounded-xl cursor-pointer'" 
+      :style-css="'rounded-xl cursor-pointer'"
+      @click="handleClick(filter.brand)"
     />
   </div>
 </template>
@@ -19,6 +20,11 @@ const props = defineProps({
     required: true
   }
 })
+const emit = defineEmits(['brandSelected'])
+
+const handleClick = (brand) => {
+  emit('brandSelected', brand)
+}
 </script>
 
 <style>

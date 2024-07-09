@@ -51,6 +51,10 @@ const productSchema = mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    discount:{
+        type: Number,
+        default: 0,
+    },
     dateCreated: {
         type: Date,
         default: Date.now,

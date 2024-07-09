@@ -17,7 +17,7 @@ export const category = [
     {
         categoryName:"Phụ kiện",
         icon:"fa-solid fa-headphones",
-        params:'/accessory'
+        params:'/accessories'
     },
     {
         categoryName:"Smartwatch",
@@ -58,6 +58,7 @@ export const categorySale = [
         name:'Iphone 13',
         price:'Chỉ từ 14.290.000đ',
         srcImage: 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/2024/06/banner/Des-280x235.png',
+        redirect:'/phone'
       },
       {
         width: '300px',
@@ -65,6 +66,7 @@ export const categorySale = [
         name:'Laptop Gaming Card RTX',
         price:'Chỉ từ 15.990.000đ',
         srcImage: 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/2024/04/banner/Xu-hu%CC%9Bo%CC%9B%CC%81ng-Desk-2-280x235.png',
+        redirect:'/laptop'
       },
       {
         width: '300px',
@@ -72,6 +74,7 @@ export const categorySale = [
         name:'Mở Bán Camera IMOU Mới',
         price:'Chỉ từ 1.050.000đ',
         srcImage: 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/2024/06/banner/CAMERA-Desk-280x235.png',
+        redirect:'/accessories'
       },
       {
         width: '300px',
@@ -79,6 +82,7 @@ export const categorySale = [
         name:'Galaxy Fit3 X Revive',
         price:'Chỉ từ 990.000đ',
         srcImage: 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/2024/06/banner/xu-huong-280x235.png',
+        redirect:'/smartwatch'
       },
     ]
 
@@ -89,72 +93,84 @@ export const categorySale = [
               name: "Điện thoại",
               width: '55px',
               height: '55px',
+              redirect:'/phone'
             },
             {
               srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Laptop-129x129.png",
               name: "Laptop",
               width: '55px',
               height: '55px',
+              redirect:'/laptop'
             },
             {
               srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/tablet-128x129-2.png",
               name: "Tablet",
               width: '55px',
               height: '55px',
+              redirect:'/tablet'
             },
             {
               srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Loa-128x128.png",
               name: "Loa",
               width: '55px',
               height: '55px',
+              redirect:'/accessories'
             },
             {
               srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Tainghe-128x129.png",
               name: "Tai nghe",
               width: '55px',
               height: '55px',
+              redirect:'/accessories'
             },
             {
               srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Sacduphong-128x129.png",
               name: "Sạc dự phòng",
               width: '55px',
               height: '55px',
+              redirect:'/accessories'
             },
             {
                 srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/the-nho-icon-128x129.png",
                 name: "Thẻ nhớ, USB",
                  width: '55px',
                 height: '55px',
+                redirect:'/accessories'
               },
               {
                 srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Thietbimang-128x129.png",
                 name: "Thiết bị mạng",
                 width: '55px',
                 height: '55px',
+                redirect:'/accessories'
               },
               {
                 srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/chuot-128x129.png",
                 name: "Chuột máy tính",
                 width: '55px',
                 height: '55px',
+                redirect:'/accessories'
               },
               {
                 srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Loa-128x128.png",
                 name: "Loa",
                 width: '55px',
                 height: '55px',
+                redirect:'/accessories'
               },
               {
                 srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Tainghe-128x129.png",
                 name: "Tai nghe",
                 width: '55px',
                 height: '55px',
+                redirect:'/accessories'
               },
               {
                 srcImage: "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn//content/Capsac-129x129.png",
                 name: "Cáp sạc",
                 width: '55px',
                 height: '55px',
+                redirect:'/accessories'
               }         
     ]
 
@@ -190,6 +206,7 @@ export const listImageLaptop = [
     src:'https://cdn.tgdd.vn/2024/05/banner/Cao-cap-1200x300-1200x300.png'
   },
 ]
+
 
 export const listImageTablet = [
   {
